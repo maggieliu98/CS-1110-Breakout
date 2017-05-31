@@ -1,0 +1,15 @@
+Extensions
+Maggie Liu (ml958) and Ananya Mishra (am2723)
+December 8th, 2016
+
+1. Added text to display the current number of lives in the top-right corner.
+We did this by creating a new attribute, _disp that was assigned to a GLabel object. Every time the ball went below the bottom of the screen, the GLabel would be updated in _lose() to reflect the new number of lives.
+
+2. Option to play a new game when current game is over (either won or lost).
+In both _updateWin() and _updateLose(), the GLabel message includes an additional instruction to “press any key to play again”. Then, using the same code that detected presses to start the game, a new game is started by calling self.start().
+
+3. Added sound to all ball collisions.
+In the initializer for the ball, an additional attribute, bounceSound was created by constructing a Sound object in the __init__ of Ball(). We used the provided sound file, bounce.wav. Whenever the ball collides with the paddle or any of the bricks, the sound is played by calling the play() method in collideBall() of Play.
+
+4. Added an image of Professor White’s face to the ball.
+On Piazza, Professor White said that we do not need a license to use his face as a GImage. So we cropped his picture and created a GImage object in the __init__ of Ball() for the ball by changing the superclass of Ball to GImage from GEllipse.
